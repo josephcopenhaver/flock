@@ -2,11 +2,12 @@ import msvcrt
 import os
 import typing
 
-# FROM: https://github.com/josephcopenhaver/flock/blob/main/platforms/_win32.py
-class Flock():
+
+# FROM: https://github.com/josephcopenhaver/flock/blob/main/flock/_win32.py
+class Flock:
     _type: str = "win32"
 
-    _fd: int|None = None
+    _fd: int | None = None
 
     def __init__(self, filePath: str):
         fd = os.open(filePath, os.O_RDWR | os.O_CREAT, 0o600)

@@ -1,11 +1,12 @@
 import os
 import typing
 
-# FROM: https://github.com/josephcopenhaver/flock/blob/main/platforms/_unix.py
-class Flock():
+
+# FROM: https://github.com/josephcopenhaver/flock/blob/main/flock/_unix.py
+class Flock:
     _type: str = "unix"
 
-    _fd: int|None = None
+    _fd: int | None = None
 
     def __init__(self, filePath: str):
         fd = os.open(filePath, os.O_RDWR | os.O_CREAT | os.O_NONBLOCK, 0o600)
